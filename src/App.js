@@ -1,24 +1,26 @@
-import logo from './logo.svg';
-import './App.css';
+import "./App.css";
+import { useState, useEffect } from "react";
+import { supabase } from "./client";
+import { BrowserRouter as Router, Route, Routes, Link } from "react-router-dom";
+import { Container, Grid } from "@mui/material";
+import NavBar from "./components/NavBar";
+import Home from "./components/Home";
+import Inventory from "./components/Inventory";
 
 function App() {
+  const [tasks, setTasks] = useState([]);
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Container maxWidth="xs">
+      <Router>
+        <Grid item justify="center">
+          <NavBar />
+        </Grid>
+        <Routes>
+          <Route exact path="/" element={<Home />}></Route>
+          <Route path="/inventory" element={<Inventory />}></Route>
+        </Routes>
+      </Router>
+    </Container>
   );
 }
 
