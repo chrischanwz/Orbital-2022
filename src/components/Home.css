@@ -21,3 +21,43 @@
 
   font-weight: 700;
 }
+
+.Expired {
+  align-self: center;
+  margin-top: 30px;
+  margin-left: 30px;
+  flex-direction: row;
+
+  font-weight: 700;
+}
+
+.changeButton {
+  margin-top: 45px;
+  margin-left: 30px;
+}
+
+button.button2 {
+  display: inline-block;
+  padding: 7px 19px;
+  font-size: 15px;
+  cursor: pointer;
+  text-align: center;
+  text-decoration: none;
+  outline: none;
+  color: rgb(35, 66, 138);
+  background-color: lightskyblue;
+  border: none;
+  border-radius: 10px;
+  box-shadow: 0 2px #999;
+  margin-bottom: 7px;
+}
+
+.button2:hover {
+  background-color: rgb(57, 126, 168);
+}
+
+.button2:active {
+  background-color: lightskyblue;
+  box-shadow: 0 2px #666;
+  transform: translateY(4px);
+}

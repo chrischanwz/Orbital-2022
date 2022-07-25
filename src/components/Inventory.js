@@ -1,8 +1,6 @@
-import { useNavigate } from "react-router-dom";
 import { useState, useEffect } from "react";
 import { supabase } from "../client";
 import InventoryList from "./InventoryList";
-import { Checkbox } from "@mui/material";
 import "./Inventory.css";
 
 import { useAuth } from "../contexts/Auth";
@@ -11,9 +9,7 @@ function Inventory() {
   const [items, setItems] = useState([]);
   const [item, setItem] = useState({ title: "", date: "", email: "" });
   const { title, date } = item;
-  const [label, setLabel] = useState([]);
   const [remove, setRemove] = useState({ deleteTitle: "" });
-  const { deleteTitle } = remove;
 
   const { user } = useAuth();
   const userEmail = user.email;
@@ -89,20 +85,23 @@ function Inventory() {
 
   return (
     <div className="App">
-      <div className="input">
+      <div className="inputDiv">
         <input
+          className="input"
           placeholder="Enter item name here"
           value={title}
           onChange={(event) => setItem({ ...item, title: event.target.value })}
         />
 
         <input
+          className="input"
           type="date"
           placeholder="YYYY/MM/DD"
           required="required"
           value={date}
           onChange={(event) => setItem({ ...item, date: event.target.value })}
         />
+        <br />
         <button className="button1" onClick={createItem}>
           {" "}
           Create Item{" "}

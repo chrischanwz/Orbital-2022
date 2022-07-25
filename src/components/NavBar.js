@@ -1,5 +1,4 @@
-import { Link } from "react-router-dom";
-import { Button, Grid, Typography, Container } from "@mui/material";
+import { Button, Grid, Container } from "@mui/material";
 import "../App.css";
 import { useNavigate } from "react-router-dom";
 
@@ -7,12 +6,6 @@ const NavBar = () => {
   let navigate = useNavigate();
   return (
     <Container>
-      {/*}
-      <Grid item align="center" style={{ fontSize: 30 }}>
-        <h1>AXPYREE</h1>
-      </Grid>
-  */}
-
       <Grid container justifyContent="center" spacing={5}>
         <Grid item>
           <Button

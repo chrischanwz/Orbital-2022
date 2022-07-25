@@ -1,6 +1,7 @@
-import { useRef, useState } from "react";
-import { Route, Routes, Link, useNavigate } from "react-router-dom";
+import { useRef } from "react";
+import { Link, useNavigate } from "react-router-dom";
 import { useAuth } from "../contexts/Auth";
+import "./Login.css";
 
 export function Signup() {
   const emailRef = useRef();
@@ -35,19 +36,37 @@ export function Signup() {
 
   return (
     <>
+      <p
+        style={{
+          textAlign: "center",
+          fontSize: "50px",
+          margin: "5px",
+          padding: "5px",
+          fontFamily: "Gill Sans",
+        }}
+      >
+        Signup Page
+      </p>
       <form onSubmit={handleSubmit}>
         <label htmlFor="input-email">Email</label>
         <input id="input-email" type="email" ref={emailRef} />
 
         <label htmlFor="input-password">Password</label>
-        <input id="input-password" type="password" ref={passwordRef} />
+        <input
+          id="input-password"
+          type="password"
+          ref={passwordRef}
+          placeholder="minimum 6 characters"
+        />
 
         <br />
 
-        <button type="submit">Sign up</button>
+        <button className="submitButton" type="submit">
+          Sign up
+        </button>
       </form>
 
-      <p>
+      <p style={{ textAlign: "center" }}>
         Already have an account? <Link to="/login">Log In</Link>
       </p>
     </>

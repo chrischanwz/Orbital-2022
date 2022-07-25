@@ -1,22 +1,47 @@
 import "../App.css";
-import { Container, Grid, Paper } from "@mui/material";
 import { useState, useEffect } from "react";
 import { supabase } from "../client";
 import "./Home.css";
 import HomePopup from "./HomePopup";
 import { useAuth } from "../contexts/Auth";
 
+import Table from "@mui/material/Table";
+import TableBody from "@mui/material/TableBody";
+import TableCell, { tableCellClasses } from "@mui/material/TableCell";
+import TableHead from "@mui/material/TableHead";
+import TableRow from "@mui/material/TableRow";
+import { styled } from "@mui/material/styles";
+
+const StyledTableCell = styled(TableCell)(({ theme }) => ({
+  [`&.${tableCellClasses.head}`]: {
+    backgroundColor: theme.palette.common.black,
+    color: theme.palette.common.white,
+  },
+  [`&.${tableCellClasses.body}`]: {
+    fontSize: 14,
+  },
+}));
+
+const StyledTableRow = styled(TableRow)(({ theme }) => ({
+  "&:nth-of-type(odd)": {
+    backgroundColor: theme.palette.common.white,
+  },
+  "&:nth-of-type(even)": {
+    backgroundColor: theme.palette.common.white,
+  },
+}));
+
 function Home() {
   const [items, setItems] = useState([]);
+  const [expiredItems, setExpiredItems] = useState([]);
   const [numDays, setNumDays] = useState(7);
-  const [newDays, setNewDays] = useState(0);
+  const [displayDays, setDisplayDays] = useState(7);
 
   const today = new Date();
 
-  const [limit, setLimit] = useState(new Date(today));
-
-  /*const limit = new Date(today);
-  limit.setDate(limit.getDate() + numDays);*/
+  const [limit, setLimit] = useState(
+    new Date(today.getTime() + 7 * 24 * 60 * 60 * 1000)
+  );
 
   const [buttonPopup, setButtonPopup] = useState(false);
 
@@ -25,23 +50,11 @@ function Home() {
 
   useEffect(() => {
     fetchItems();
-  }, [numDays]);
+  }, [limit]);
 
-  /*
   useEffect(() => {
-    fetchLimit();
+    fetchExpiredItems();
   }, []);
-
-  function fetchLimit() {
-    const temp = new Date();
-    setNumDays(newDays);
-    console.log("numDays:", numDays);
-    console.log("newDays", newDays);
-    temp.setDate(today.getDate() + numDays);
-    console.log("temp", temp);
-    setLimit(temp);
-  }
-  */
 
   async function addDays(days) {
     return setLimit(
@@ -54,8 +67,8 @@ function Home() {
       .from("items")
       .select()
       .match({ userEmail: userEmail })
-      .lt("date", limit.toISOString())
-      .gt("date", today.toISOString())
+      .lte("date", limit.toISOString())
+      .gte("date", today.toISOString())
       .order("date", { ascending: true });
     setItems(data);
     console.log("limit:", limit);
@@ -63,80 +76,153 @@ function Home() {
     console.log("today.getDate();", today.getDate());
   }
 
+  async function fetchExpiredItems() {
+    const { data } = await supabase
+      .from("items")
+      .select()
+      .match({ userEmail: userEmail })
+      .lt("date", today.toISOString())
+      .order("date", { ascending: true });
+    setExpiredItems(data);
+    console.log("expired items:", expiredItems);
+  }
   async function handleChangeLimit(value) {
     setNumDays(value);
-    addDays(value);
-    console.log(addDays(value));
+  }
+
+  async function closeAndChangeLimit() {
+    setButtonPopup(false);
+    changeLimit();
+  }
+
+  async function changeLimit() {
+    addDays(numDays);
+    setDisplayDays(numDays);
+  }
+
+  function displayDaysFunc(num) {
+    if (num == 1) {
+      return "day";
+    }
+    if (num == 0) {
+      return "";
+    } else {
+      return "days";
+    }
   }
   return (
-    <div>
+    <>
       {/*
-      <div className="date">
-        {" "}
-        <h3> Today's Date: </h3>
-        <h3> {today.toDateString()}</h3>
-      </div>
-  */}
-
       <input
         onChange={(event) => handleChangeLimit(event.target.value)}
         value={numDays}
         placeholder="Change Limit here"
       />
+      <button onClick={changeLimit}>
+        Change reminder period
+        <br />
+        for your expiring items
+      </button>
+  */}
 
       <div className="Expiring">
         {items.length === 0 ? (
-          <h3>You have no items expiring in {numDays} days! </h3>
-        ) : (
           <h3>
-            {" "}
-            You have {items.length} {items.length > 1 ? "items" : "item"}{" "}
-            expiring in {numDays} days:
+            You have no items expiring{" "}
+            {displayDays == 0 ? "today" : `in ${displayDays}`}{" "}
+            {displayDaysFunc(displayDays)}!{" "}
           </h3>
-        )}
-        {items.map((item) => (
-          <div key={item.title}>
-            <h4>
+        ) : (
+          <div>
+            <h3>
               {" "}
-              {item.title} {item.date}
-            </h4>
+              You have {items.length} {items.length > 1 ? "items" : "item"}{" "}
+              expiring {displayDays == 0 ? "today" : `in ${displayDays}`}{" "}
+              {displayDaysFunc(displayDays)}:
+            </h3>
+
+            <Table justify="center">
+              <TableHead>
+                <TableRow>
+                  <StyledTableCell>Item Num</StyledTableCell>
+                  <StyledTableCell>Item Name</StyledTableCell>
+                  <StyledTableCell>Expiry Date</StyledTableCell>
+                </TableRow>
+              </TableHead>
+
+              <TableBody>
+                {items.map((item, index) => (
+                  <StyledTableRow key={item.title}>
+                    <StyledTableCell component="th" scope="row">
+                      {index + 1}
+                    </StyledTableCell>
+                    <StyledTableCell> {item.title}</StyledTableCell>
+                    <StyledTableCell> {item.date} </StyledTableCell>
+                  </StyledTableRow>
+                ))}
+              </TableBody>
+            </Table>
           </div>
-        ))}
+        )}
       </div>
 
-      {/*
-      <div>
-        <button onClick={() => setButtonPopup(true)}>
+      <div className="Expired">
+        {expiredItems.length === 0 ? (
+          <h3>Great! You do not have any expired items! </h3>
+        ) : (
+          <div>
+            <h3>
+              Oh no, you have {expiredItems.length}{" "}
+              {expiredItems.length > 1 ? " expired items" : "expired item"}
+            </h3>
+
+            <Table justify="center">
+              <TableHead>
+                <TableRow>
+                  <StyledTableCell>Item Num</StyledTableCell>
+                  <StyledTableCell>Item Name</StyledTableCell>
+                  <StyledTableCell>Expiry Date</StyledTableCell>
+                </TableRow>
+              </TableHead>
+
+              <TableBody>
+                {expiredItems.map((item, index) => (
+                  <StyledTableRow key={item.title}>
+                    <StyledTableCell component="th" scope="row">
+                      {index + 1}
+                    </StyledTableCell>
+                    <StyledTableCell> {item.title}</StyledTableCell>
+                    <StyledTableCell> {item.date} </StyledTableCell>
+                  </StyledTableRow>
+                ))}
+              </TableBody>
+            </Table>
+          </div>
+        )}
+      </div>
+
+      <div className="changeButton">
+        <button className="button2" onClick={() => setButtonPopup(true)}>
           {" "}
           Edit expiry period{" "}
         </button>
       </div>
-
-      
-
       <HomePopup trigger={buttonPopup} setTrigger={setButtonPopup}>
         <p> Change expiry reminder period to: </p>
         <div>
           <input
             placeholder="No. of days"
             required="required"
-            value={newDays}
-            onChange={(event) => setNewDays(event.target.value)}
+            onChange={(event) => handleChangeLimit(event.target.value)}
+            value={numDays}
           ></input>
-          <button
-            className="button"
-            onClick={() => {
-              fetchItems();
-            }}
-          >
+          <button className="button" onClick={closeAndChangeLimit}>
             {" "}
             Confirm{" "}
           </button>
         </div>
       </HomePopup>
-          */}
-    </div>
+    </>
   );
 }
-
 export default Home;
