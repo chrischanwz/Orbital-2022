@@ -1,0 +1,23 @@
+.ate {
+  justify-content: "flex-end";
+  margin-bottom: 30;
+  color: aqua;
+}
+
+.date {
+  margin-top: 30px;
+  flex-direction: row;
+}
+
+.span {
+  font: bold;
+}
+
+.Expiring {
+  align-self: center;
+  margin-top: 30px;
+  margin-left: 30px;
+  flex-direction: row;
+
+  font-weight: 700;
+}

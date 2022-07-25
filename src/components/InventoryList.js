@@ -9,11 +9,11 @@ import Paper from "@mui/material/Paper";
 import { supabase } from "../client";
 import { useState, useEffect } from "react";
 import Checkbox from "@mui/material/Checkbox";
-import { styled } from '@mui/material/styles';
-import DeleteIcon from '@mui/icons-material/Delete';
+import { styled } from "@mui/material/styles";
+import DeleteIcon from "@mui/icons-material/Delete";
 import { Button } from "@mui/material";
-import ArrowDropUpIcon from '@mui/icons-material/ArrowDropUp';
-import ArrowDropDownIcon from '@mui/icons-material/ArrowDropDown';
+import ArrowDropUpIcon from "@mui/icons-material/ArrowDropUp";
+import ArrowDropDownIcon from "@mui/icons-material/ArrowDropDown";
 
 const StyledTableCell = styled(TableCell)(({ theme }) => ({
   [`&.${tableCellClasses.head}`]: {
@@ -26,27 +26,37 @@ const StyledTableCell = styled(TableCell)(({ theme }) => ({
 }));
 
 const StyledTableRow = styled(TableRow)(({ theme }) => ({
-  '&:nth-of-type(odd)': {
-    backgroundColor: theme.palette.common.white
+  "&:nth-of-type(odd)": {
+    backgroundColor: theme.palette.common.white,
   },
-  '&:nth-of-type(even)': {
-    backgroundColor: theme.palette.common.white
+  "&:nth-of-type(even)": {
+    backgroundColor: theme.palette.common.white,
   },
-
 }));
 
 export default function InventoryList(props) {
   return (
     <div>
-      <Table justify = "center" >
+      <Table justify="center">
         <TableHead>
           <TableRow>
-          <StyledTableCell>
-          Item Num
-          <br/><ArrowDropUpIcon onClick={() => props.handlesortName()}/><ArrowDropDownIcon/>
-          </StyledTableCell>
-            <StyledTableCell>Item Name<br/><ArrowDropUpIcon onClick={() => props.handlesortName()}/><ArrowDropDownIcon/></StyledTableCell>
-            <StyledTableCell>Expiry Date<br/><ArrowDropUpIcon onClick={() => props.handlesortName()}/><ArrowDropDownIcon/></StyledTableCell>
+            <StyledTableCell>
+              Item Num
+              <br />
+            </StyledTableCell>
+            <StyledTableCell>
+              Item Name
+              <ArrowDropUpIcon onClick={() => props.ascendingName()} />
+              <ArrowDropDownIcon onClick={() => props.descendingName()} />
+            </StyledTableCell>
+            <StyledTableCell>
+              Expiry Date
+              <ArrowDropUpIcon
+                style={{}}
+                onClick={() => props.ascendingDate()}
+              />
+              <ArrowDropDownIcon onClick={() => props.descendingDate()} />
+            </StyledTableCell>
             <StyledTableCell>Delete</StyledTableCell>
           </TableRow>
         </TableHead>
@@ -60,7 +70,7 @@ export default function InventoryList(props) {
               <StyledTableCell> {item.title}</StyledTableCell>
               <StyledTableCell> {item.date} </StyledTableCell>
               <StyledTableCell>
-              <DeleteIcon onClick={() => props.handleDelete(item.id)}/>
+                <DeleteIcon onClick={() => props.handleDelete(item.id)} />
               </StyledTableCell>
             </StyledTableRow>
           ))}
