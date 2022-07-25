@@ -204,7 +204,7 @@ function Home() {
       <div className="changeButton">
         <button className="button2" onClick={() => setButtonPopup(true)}>
           {" "}
-          Edit expiry period{" "}
+          Edit Expiry Reminder period{" "}
         </button>
       </div>
       <HomePopup trigger={buttonPopup} setTrigger={setButtonPopup}>

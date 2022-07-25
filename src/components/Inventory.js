@@ -30,6 +30,9 @@ function Inventory() {
   async function createItem() {
     if (title.length <= 0) {
       alert("Please enter a item name!");
+    }
+    if (date.length <= 0) {
+      alert("Please enter a date!");
     } else {
       await supabase
         .from("items")
