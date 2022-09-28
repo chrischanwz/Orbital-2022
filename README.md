@@ -14,3 +14,10 @@ React, Supabase & Netlify (for the hosting)
 ### INSTRUCTIONS TO USE 
 **LINK TO AXPYREE** [Axpyree](axpyree.netlify.app/signup) 
 Feel free to play around with Axpyree and give me any feedback you may have! I do plan to eventually brush up on my CSS/HTML skills so that the frontend looks way nicer...
+
+Also, **you are required to signup with your email and click on the confirmation link sent** before logging in to use Axpyree. 
+I will enable OAuth in the future, Supabase supports it so that makes it a lot easier for me. 
+
+
+
+
