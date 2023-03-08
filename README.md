@@ -1,5 +1,6 @@
 # Orbital-2022
 Axpyree - Never let your foods expire again!
+[CLick here for the Link to Axpyree](https://axpyree.netlify.app/) 
 
 ## This is my first webapp
 I had to come up with one with my partner, Boon Jun, for Project Orbital, a programme offered by my school. 
@@ -12,7 +13,7 @@ With just these thoughts and no prior experience in app development, we started 
 React, Supabase & Netlify (for the hosting) 
 
 ### INSTRUCTIONS TO USE 
-**LINK TO AXPYREE** [Axpyree](axpyree.netlify.app/login) 
+**LINK TO AXPYREE** [CLick here for the Link to Axpyree](https://axpyree.netlify.app/) 
 Feel free to play around with Axpyree and give me any feedback you may have! I do plan to eventually brush up on my CSS/HTML skills so that the frontend looks way nicer...
 
 Also, **you are required to signup with your email and click on the confirmation link sent** before logging in to use Axpyree. 
