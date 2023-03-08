@@ -12,7 +12,7 @@ With just these thoughts and no prior experience in app development, we started 
 React, Supabase & Netlify (for the hosting) 
 
 ### INSTRUCTIONS TO USE 
-**LINK TO AXPYREE** [Axpyree](axpyree.netlify.app/signup) 
+**LINK TO AXPYREE** [Axpyree](axpyree.netlify.app/login) 
 Feel free to play around with Axpyree and give me any feedback you may have! I do plan to eventually brush up on my CSS/HTML skills so that the frontend looks way nicer...
 
 Also, **you are required to signup with your email and click on the confirmation link sent** before logging in to use Axpyree. 
