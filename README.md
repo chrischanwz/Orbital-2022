@@ -1,9 +1,11 @@
 # Orbital-2022
 
 Axpyree - Never let your foods expire again!
+[CLick here for the Link to Axpyree](https://axpyree.netlify.app/)
 
-## This is my first webapp
+## NOTE: ROUTING BETWEEN PAGES DOES NOT CURRENTLY WORK DUE TO CHANGES IN REACT-ROUTER
 
+This is my first web application that I have developed.
 I had to come up with one with my partner, Boon Jun, for Project Orbital, a programme offered by my school.
 I wanted to solve a very simple problem at home: my family kept letting our groceries and foods expire (unknowingly, of course).
 The plan was to come up with a simple webapp that could be used by anyone, even my grandmother, and to have a clear reminder on the homepage warning the user of
@@ -12,11 +14,9 @@ With just these thoughts and no prior experience in app development, we started 
 
 ### Tech Stack
 
-React, Supabase & Netlify (for the hosting)
-
 ### INSTRUCTIONS TO USE
 
-**LINK TO AXPYREE** [Axpyree](axpyree.netlify.app/signup)
+**LINK TO AXPYREE** [CLick here for the Link to Axpyree](https://axpyree.netlify.app/)
 Feel free to play around with Axpyree and give me any feedback you may have! I do plan to eventually brush up on my CSS/HTML skills so that the frontend looks way nicer...
 
 Also, **you are required to signup with your email and click on the confirmation link sent** before logging in to use Axpyree.
