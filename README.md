@@ -1,7 +1,8 @@
-# Orbital-2022
+# [Axpyree](https://axpyree.netlify.app/login) - Never let your foods expire again!
 
-Axpyree - Never let your foods expire again!
-[CLick here for the Link to Axpyree](https://axpyree.netlify.app/)
+Orbital 2022
+
+[CLick here for the Link to Axpyree](https://axpyree.netlify.app/login)
 
 ## NOTE: ROUTING BETWEEN PAGES DOES NOT CURRENTLY WORK DUE TO CHANGES IN REACT-ROUTER
 
@@ -16,7 +17,7 @@ With just these thoughts and no prior experience in app development, we started 
 
 ### INSTRUCTIONS TO USE
 
-**LINK TO AXPYREE** [CLick here for the Link to Axpyree](https://axpyree.netlify.app/)
+**LINK TO AXPYREE** [Click here](https://axpyree.netlify.app/login)
 Feel free to play around with Axpyree and give me any feedback you may have! I do plan to eventually brush up on my CSS/HTML skills so that the frontend looks way nicer...
 
 Also, **you are required to signup with your email and click on the confirmation link sent** before logging in to use Axpyree.
