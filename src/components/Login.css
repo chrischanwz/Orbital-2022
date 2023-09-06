@@ -1,3 +1,7 @@
+body {
+  width: 100%;
+  min-width: 1140px;
+}
 form {
   display: flex;
   flex-direction: column;
@@ -7,6 +11,21 @@ form {
   padding: 15px 50px;
 }
 
+.mainDiv {
+  display: flex;
+  justify-content: space-around;
+}
+
+.title {
+  display: flex;
+  justify-content: space-around;
+}
+
+.description {
+  display: block;
+  color: #0288d1;
+  width: 400px;
+}
 input {
   border: 1px solid #d9d9d9;
   box-sizing: border-box;
@@ -14,10 +33,43 @@ input {
   width: 100%;
 }
 
+.loginDiv {
+  display: block;
+  background-color: rgb(232, 232, 232);
+  border-radius: 5px;
+  width: 400px;
+  margin-right: auto;
+  margin-left: auto;
+}
+
+#features {
+  display: flex;
+  justify-content: center;
+}
+#feature-home-page {
+  display: block;
+  width: 400px;
+  color: black;
+  text-align: center;
+  border-right: 1px groove grey;
+}
+#feature-inventory-page {
+  display: block;
+  width: 400px;
+  color: black;
+  text-align: center;
+}
+#input-email {
+  margin: 0px 0 20px 0;
+}
+#input-password {
+  margin: 0 0 20px 0;
+}
+
 label {
   color: #3d3d3d;
   display: block;
-  font-family: sans-serif;
+  font-family: Staatliches;
   font-size: 14px;
   font-weight: 500;
   margin-bottom: 10px;
@@ -26,15 +78,30 @@ label {
 .submitButton {
   background-color: #6976d9;
   color: white;
-  font-family: sans-serif;
+  font-family: Staatliches;
   font-size: 14px;
-  margin: 5px 0px;
+  margin: 5px;
   padding: 3px;
+  border-radius: 5px;
 }
 .submitButton:hover {
   background-color: #3755b1;
 }
 
-.p {
+p {
   text-align: center;
+  font-size: 16px;
+}
+
+#banner {
+  background-image: url("../kitchen.jpg");
+  background-size: 1180px;
+  width: 100%;
+  height: 500px;
+  margin: 0px;
+  padding: 0px;
+  text-align: center;
+}
+#banner-text {
+  padding-top: 150px;
 }
