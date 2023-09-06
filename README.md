@@ -2,7 +2,8 @@
 Axpyree - Never let your foods expire again!
 [CLick here for the Link to Axpyree](https://axpyree.netlify.app/) 
 
-## This is my first webapp
+## NOTE: ROUTING BETWEEN PAGES DOES NOT CURRENTLY WORK DUE TO CHANGES IN REACT-ROUTER 
+This is my first web application that I have developed.
 I had to come up with one with my partner, Boon Jun, for Project Orbital, a programme offered by my school. 
 I wanted to solve a very simple problem at home: my family kept letting our groceries and foods expire (unknowingly, of course).
 The plan was to come up with a simple webapp that could be used by anyone, even my grandmother, and to have a clear reminder on the homepage warning the user of 
