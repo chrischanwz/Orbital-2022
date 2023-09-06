@@ -4,9 +4,7 @@ Orbital 2022
 
 [CLick here for the Link to Axpyree](https://axpyree.netlify.app/login)
 
-## NOTE: ROUTING BETWEEN PAGES DOES NOT CURRENTLY WORK DUE TO CHANGES IN REACT-ROUTER
-
-This is my first web application that I have developed.
+This is my first web application that I have ever developed.
 I had to come up with one with my partner, Boon Jun, for Project Orbital, a programme offered by my school.
 I wanted to solve a very simple problem at home: my family kept letting our groceries and foods expire (unknowingly, of course).
 The plan was to come up with a simple webapp that could be used by anyone, even my grandmother, and to have a clear reminder on the homepage warning the user of
@@ -14,6 +12,11 @@ any foods expiring.
 With just these thoughts and no prior experience in app development, we started our journey.
 
 ### Tech Stack
+
+Frontend: ReactJS, CSS, JS
+Backend: Supabase - database (Postgres), user authentication
+Hosting: Netlify
+NodeJS
 
 ### INSTRUCTIONS TO USE
 
